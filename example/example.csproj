@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>PipServices3.GraphQL.Federation.Example</AssemblyName>
+    <RootNamespace>PipServices3.GraphQL.Federation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\src.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="schema.graphql" />
+    <None Remove="Services\schema-cart.graphql" />
+    <None Remove="Services\schema-product.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Services\schema-cart.graphql" />
+    <EmbeddedResource Include="Services\schema-federation.graphql" />
+    <EmbeddedResource Include="Services\schema-product.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PipServices3.GraphQL" Version="1.1.0" />
+  </ItemGroup>
+</Project>

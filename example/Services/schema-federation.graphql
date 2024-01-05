@@ -1,0 +1,8 @@
+extend type Query {
+	cart(id: Long, correlationId: String): Cart @delegate(schema: "carts")
+	product(id: Long, correlationId: String): Product @delegate(schema: "products")
+}
+
+extend type Item {
+	product: Product @delegate(schema: "products", path: "product(id: $fields:productId, correlationId: null)")
+}
